@@ -1,0 +1,59 @@
+{
+  "mcpServers": {
+    "supabase": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@supabase/mcp-server-supabase@latest",
+        "--read-only",
+        "--project-ref=${SUPABASE_PROJECT_REF}"
+      ],
+      "env": {
+        "SUPABASE_ACCESS_TOKEN": "${SUPABASE_ACCESS_TOKEN}"
+      }
+    },
+
+    "github": {
+      "url": "https://api.githubcopilot.com/mcp/",
+      "headers": {
+        "Authorization": "Bearer ${GITHUB_PAT}"
+      }
+    },
+
+    "cloudflare": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "mcp-remote",
+        "https://mcp.cloudflare.com/mcp"
+      ]
+    },
+
+    "easypanel": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "easypanel-mcp-server"
+      ],
+      "env": {
+        "EASYPANEL_URL": "${EASYPANEL_URL}",
+        "EASYPANEL_TOKEN": "${EASYPANEL_TOKEN}"
+      }
+    },
+
+    "n8n": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "n8n-mcp"
+      ],
+      "env": {
+        "MCP_MODE": "stdio",
+        "LOG_LEVEL": "error",
+        "DISABLE_CONSOLE_OUTPUT": "true",
+        "N8N_API_URL": "https://n8neditor.strat.tec.br",
+        "N8N_API_KEY": "${N8N_API_KEY}"
+      }
+    }
+  }
+}
