@@ -2,6 +2,7 @@ import { Outlet } from 'react-router-dom'
 import { Building2 } from 'lucide-react'
 
 import { APP_NAME } from '@/lib/constants'
+import { UserSwitcher } from '@/components/shared/user-switcher'
 import { Sidebar } from './sidebar'
 
 /** Shell da aplicação: navegação lateral (desktop) + área de conteúdo com <Outlet />. */
@@ -15,6 +16,9 @@ export function AppShell() {
         <header className="flex h-14 items-center gap-2 border-b px-4 md:hidden">
           <Building2 className="h-5 w-5 text-primary" aria-hidden />
           <span className="font-semibold">{APP_NAME}</span>
+          <div className="ml-auto w-48">
+            <UserSwitcher />
+          </div>
         </header>
 
         <main className="flex-1 overflow-y-auto">

@@ -11,6 +11,7 @@ import {
 
 import { cn } from '@/lib/utils'
 import { APP_NAME, ROUTES } from '@/lib/constants'
+import { UserSwitcher } from '@/components/shared/user-switcher'
 
 interface NavItem {
   to: string
@@ -57,8 +58,8 @@ export function Sidebar() {
         ))}
       </nav>
 
-      <div className="border-t p-4 text-xs text-muted-foreground">
-        MVP · Fase 0
+      <div className="border-t p-3">
+        <UserSwitcher />
       </div>
     </aside>
   )
