@@ -1,7 +1,7 @@
 import { useMutation, useQueryClient } from '@tanstack/react-query'
 import { toast } from 'sonner'
 
-import { useCurrentUser } from '@/lib/dev-session'
+import { useCurrentUser } from '@/lib/auth'
 import type { LeadStatus } from '@/types'
 
 import { moveLead } from '../repo'

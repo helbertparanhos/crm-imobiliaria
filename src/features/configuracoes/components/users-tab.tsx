@@ -26,7 +26,7 @@ import {
   TableRow,
 } from '@/components/ui/table'
 import { RoleBadge } from '@/components/shared/badges'
-import { useCurrentUser } from '@/lib/dev-session'
+import { useCurrentUser } from '@/lib/auth'
 import { ROLE_LABELS } from '@/lib/permissions'
 import type { Role } from '@/types'
 

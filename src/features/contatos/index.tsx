@@ -5,7 +5,7 @@ import { PageHeader } from '@/components/shared/page-header'
 import { EmptyState } from '@/components/shared/empty-state'
 import { ConfirmDialog } from '@/components/shared/confirm-dialog'
 import { Button } from '@/components/ui/button'
-import { useCurrentUser } from '@/lib/dev-session'
+import { useCurrentUser } from '@/lib/auth'
 import { canSeeAllOrg } from '@/lib/permissions'
 import type { Contact, PipelineStage, Profile } from '@/types'
 

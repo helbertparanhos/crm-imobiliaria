@@ -1,7 +1,7 @@
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
 import { toast } from 'sonner'
 
-import { useCurrentUser } from '@/lib/dev-session'
+import { useCurrentUser } from '@/lib/auth'
 import type { Organization } from '@/types'
 
 import { getOrg, updateOrg } from '../repo'

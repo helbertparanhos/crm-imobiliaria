@@ -1,7 +1,7 @@
 /** Hooks de leitura (TanStack Query) da feature Tarefas. */
 import { useQuery } from '@tanstack/react-query'
 
-import { useCurrentUser } from '@/lib/dev-session'
+import { useCurrentUser } from '@/lib/auth'
 
 import {
   listContactsForSelect,

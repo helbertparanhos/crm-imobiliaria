@@ -13,7 +13,7 @@ import {
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { RoleBadge } from '@/components/shared/badges'
-import { useCurrentUser } from '@/lib/dev-session'
+import { useCurrentUser } from '@/lib/auth'
 
 import { useUpdateProfile } from '../hooks/use-users'
 import { profileSchema, type ProfileFormValues } from '../types'

@@ -11,7 +11,7 @@ import {
   profiles,
 } from '@/mocks/db'
 import { genId, mockDelay } from '@/mocks/latency'
-import { getCurrentUser } from '@/lib/dev-session'
+import { getCurrentUser } from '@/lib/auth'
 import { canSeeAllOrg, scopeByRole } from '@/lib/permissions'
 import type { Lead, LeadStatus, Profile } from '@/types'
 

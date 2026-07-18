@@ -5,7 +5,7 @@
  */
 import { isFuture, isPast, isToday, parseISO } from 'date-fns'
 
-import { getCurrentUser } from '@/lib/dev-session'
+import { getCurrentUser } from '@/lib/auth'
 import { PRIORITY_ORDER } from '@/lib/constants'
 import { canSeeAllOrg, scopeByRole } from '@/lib/permissions'
 import { contacts, leads, ORG_ID, profiles, tasks } from '@/mocks/db'

@@ -24,7 +24,7 @@ import {
 } from '@/components/ui/select'
 import { Textarea } from '@/components/ui/textarea'
 import { PRIORITY_LABELS } from '@/lib/constants'
-import { useCurrentUser } from '@/lib/dev-session'
+import { useCurrentUser } from '@/lib/auth'
 import { canSeeAllOrg } from '@/lib/permissions'
 import { toDateInputValue } from '@/lib/format'
 import type { TaskPriority } from '@/types'

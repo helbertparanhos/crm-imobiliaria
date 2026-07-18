@@ -13,7 +13,7 @@ import {
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { formatDate } from '@/lib/format'
-import { useCurrentUser } from '@/lib/dev-session'
+import { useCurrentUser } from '@/lib/auth'
 import { isAdmin } from '@/lib/permissions'
 
 import { useOrg, useUpdateOrg } from '../hooks/use-org'

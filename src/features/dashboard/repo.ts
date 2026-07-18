@@ -19,7 +19,7 @@ import { ptBR } from 'date-fns/locale'
 
 import { contacts, leads, pipelineStages, tasks } from '@/mocks/db'
 import { mockDelay } from '@/mocks/latency'
-import { getCurrentUser } from '@/lib/dev-session'
+import { getCurrentUser } from '@/lib/auth'
 import { scopeByRole } from '@/lib/permissions'
 
 import { PERIOD_OPTIONS } from './types'

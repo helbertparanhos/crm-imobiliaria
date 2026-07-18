@@ -1,6 +1,6 @@
 import { useQuery } from '@tanstack/react-query'
 
-import { useCurrentUser } from '@/lib/dev-session'
+import { useCurrentUser } from '@/lib/auth'
 
 import { getLeadById } from '../repo'
 
