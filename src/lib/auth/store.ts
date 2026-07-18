@@ -1,5 +1,5 @@
 /**
- * Estado de sessão (Fase 2). Guarda a sessão do Supabase Auth + o perfil resolvido
+ * Estado de sessão (Fase 2+). Guarda a sessão do Supabase Auth + o perfil resolvido
  * (papel/organização). Os componentes leem via useCurrentUser (barrel index.ts).
  */
 import { create } from 'zustand'
@@ -7,7 +7,7 @@ import type { Session } from '@supabase/supabase-js'
 
 import { supabase } from '@/lib/supabase/client'
 import type { Profile } from '@/types'
-import { resolveProfileByEmail } from './profile-bridge'
+import { loadProfile } from './load-profile'
 
 export type AuthStatus =
   | 'loading'
@@ -19,21 +19,22 @@ interface AuthState {
   status: AuthStatus
   session: Session | null
   profile: Profile | null
-  applySession: (session: Session | null) => void
+  applySession: (session: Session | null) => Promise<void>
 }
 
 export const useAuthStore = create<AuthState>((set) => ({
   status: 'loading',
   session: null,
   profile: null,
-  applySession: (session) => {
+  applySession: async (session) => {
     if (!session) {
       set({ status: 'unauthenticated', session: null, profile: null })
       return
     }
-    const profile = resolveProfileByEmail(session.user.email)
+    set({ session })
+    const profile = await loadProfile(session)
     if (!profile) {
-      // Autenticou, mas o e-mail não tem perfil no CRM (ver profile-bridge / Fase 3).
+      // Autenticou, mas não há perfil associado (ver load-profile / profiles + RLS).
       set({ status: 'no-profile', session, profile: null })
       return
     }
@@ -49,11 +50,11 @@ export function initAuth(): void {
   initialized = true
 
   void supabase.auth.getSession().then(({ data }) => {
-    useAuthStore.getState().applySession(data.session)
+    void useAuthStore.getState().applySession(data.session)
   })
 
   supabase.auth.onAuthStateChange((_event, session) => {
-    useAuthStore.getState().applySession(session)
+    void useAuthStore.getState().applySession(session)
   })
 }
 
